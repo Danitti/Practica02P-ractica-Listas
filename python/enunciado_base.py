@@ -18,10 +18,28 @@ Para comprobar tu solución, ejecuta este fichero:
 # ---------------------------------------------------------------------------
 def insertion_sort(lista):
     """Ordena 'lista' de menor a mayor modificándola in-place. No devuelve nada."""
-    # completa
-    pass
+    if lista == []:
+        return []
 
-# Complejidad -> mejor caso: ...   peor caso: ...
+    if len(lista) == 1:
+        return lista
+    
+    for i, elemento in enumerate(lista):
+        valor_auxiliar_1 = elemento
+        for j in range(i-1, -1, -1):
+            if elemento < lista[j]:
+                lista[j+1] = lista[j]
+                lista[j] = valor_auxiliar_1
+            
+            if elemento > lista[j]:
+                break            
+            
+            
+                
+    return lista
+    
+
+# Complejidad -> mejor caso: O(1)   peor caso: O(n^4)
 
 
 # ---------------------------------------------------------------------------
@@ -29,8 +47,24 @@ def insertion_sort(lista):
 # ---------------------------------------------------------------------------
 def fusionar(a, b):
     """Devuelve una lista NUEVA y ordenada con los elementos de a y b (ya ordenadas)."""
-    # completa
-    pass
+    if (a == [] and b == []):
+        return []
+    
+    if (a == []):
+        return b
+    
+    if (b == []):
+        return a
+    
+    lista_nueva = []
+        
+    
+    return lista_nueva
+    
+    
+    
+    
+    
 
 # Complejidad -> ...
 
