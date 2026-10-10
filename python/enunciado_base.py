@@ -39,7 +39,7 @@ def insertion_sort(lista):
     return lista
     
 
-# Complejidad -> mejor caso: O(1)   peor caso: O(n^4)
+# Complejidad -> mejor caso: O(1)   peor caso: O(n^2)
 
 
 # ---------------------------------------------------------------------------
@@ -57,7 +57,37 @@ def fusionar(a, b):
         return a
     
     lista_nueva = []
+    
+    i = 0
+    j = 0
+    
+    while (i < len(a) and j < len(b)):
+        valor_a = a[i]
+        valor_b = b[j]
+        if valor_a < valor_b:
+            lista_nueva.append(valor_a)
+            i += 1
         
+        elif valor_b < valor_a:
+            lista_nueva.append(valor_b)
+            j += 1
+        
+        else: # valor_b = valor_a
+            lista_nueva.append(valor_a)
+            lista_nueva.append(valor_b)
+            i += 1
+            j += 1
+    
+    if i < len(a):
+        while (i < len(a)):
+            lista_nueva.append(a[i])
+            i += 1
+    
+    if j < len(b):
+        while (j < len(b)):
+            lista_nueva.append(b[j])
+            j += 1
+                
     
     return lista_nueva
     
@@ -66,7 +96,7 @@ def fusionar(a, b):
     
     
 
-# Complejidad -> ...
+# Complejidad -> O(n)
 
 
 # ---------------------------------------------------------------------------
@@ -74,10 +104,31 @@ def fusionar(a, b):
 # ---------------------------------------------------------------------------
 def sin_duplicados(lista):
     """Devuelve una lista NUEVA con la primera aparición de cada valor. Sin set."""
-    # completa
-    pass
+    if lista == []:
+        return []
+    
+    lista_nueva = []
+    
+    for elemento in lista:
+        existe_ya = False
+        if lista_nueva == []:
+            lista_nueva.append(elemento)
+            continue
+        
+        for elemento_nuevos in lista_nueva:
+            if elemento == elemento_nuevos:
+                existe_ya = True
+                break
+        
+        if not existe_ya:
+            lista_nueva.append(elemento)
+    
+    return lista_nueva
+            
+        
+            
 
-# Complejidad -> peor caso: ...   ¿por qué?
+# Complejidad -> peor caso: O(n^2)   ¿por qué? Porque resulta que el primer y último elemento se repiten, por lo que hay que iterar hasta el final para llegar a descartarlo
 
 
 # ---------------------------------------------------------------------------

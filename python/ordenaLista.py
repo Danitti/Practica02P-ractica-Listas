@@ -1,6 +1,6 @@
 def ordena(lista):
     if lista == []:
-            return []
+        return []
     
     if len(lista) == 1:
         return lista
