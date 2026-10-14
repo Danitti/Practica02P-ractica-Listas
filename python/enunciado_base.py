@@ -128,7 +128,7 @@ def sin_duplicados(lista):
         
             
 
-# Complejidad -> peor caso: O(n^2)   ¿por qué? Porque resulta que el primer y último elemento se repiten, por lo que hay que iterar hasta el final para llegar a descartarlo
+# Complejidad -> peor caso: O(n^2)   ¿por qué? Porque resulta que si el último y penúltimo elemento se repiten, por lo que hay que iterar hasta el final para llegar a descartarlo
 
 
 # ---------------------------------------------------------------------------
